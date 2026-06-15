@@ -2,25 +2,36 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('user', {
+    await queryInterface.createTable('vaga', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      email: {
+      empresa_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'empresa', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
+      titulo: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
-      password_hash: {
+      descricao: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      area: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      role: {
-        type: Sequelize.ENUM('aluno', 'empresa'),
+      preenchida: {
+        type: Sequelize.BOOLEAN,
         allowNull: false,
+        defaultValue: false,
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -34,6 +45,6 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    await queryInterface.dropTable('user');
+    await queryInterface.dropTable('vaga');
   },
 };

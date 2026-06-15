@@ -5,13 +5,14 @@ class User extends Model {
     static init(sequelize) {
         super.init(
             {
-                nome: Sequelize.STRING,
                 email: Sequelize.STRING,
                 password: Sequelize.VIRTUAL,
-                password_hash: Sequelize.STRING
+                password_hash: Sequelize.STRING,
+                role: Sequelize.ENUM('aluno', 'empresa'),
             },
             {
-                sequelize
+                sequelize,
+                tableName: 'user',
             }
         )
 
@@ -22,6 +23,11 @@ class User extends Model {
         })
 
         return this
+    }
+
+    static associate(models) {
+        this.hasOne(models.Aluno, { foreignKey: 'user_id' })
+        this.hasOne(models.Empresa, { foreignKey: 'user_id' })
     }
 
     async checkPassword(password) {
