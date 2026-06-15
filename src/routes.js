@@ -17,11 +17,13 @@ routes.post('/empresa', EmpresaController.store)
 routes.use(authMiddleware)
 
 // Aluno
+routes.get('/aluno', roleMiddleware('aluno'), AlunoController.show)
 routes.put('/aluno', roleMiddleware('aluno'), AlunoController.update)
 routes.get('/vagas', roleMiddleware('aluno'), VagaController.index)
 routes.get('/vagas/:id', roleMiddleware('aluno'), VagaController.show)
 
 // Empresa
+routes.get('/empresa', roleMiddleware('empresa'), EmpresaController.show)
 routes.put('/empresa', roleMiddleware('empresa'), EmpresaController.update)
 routes.post('/vagas', roleMiddleware('empresa'), VagaController.store)
 routes.put('/vagas/:id', roleMiddleware('empresa'), VagaController.update)

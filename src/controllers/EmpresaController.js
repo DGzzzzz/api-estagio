@@ -45,6 +45,20 @@ class EmpresaController {
         })
     }
 
+    async show(req, res) {
+        const empresa = await Empresa.findOne({
+            where: { user_id: req.userId },
+            attributes: ['nome', 'cnpj'],
+            include: [{ model: User, attributes: ['email'] }],
+        })
+
+        if (!empresa) {
+            return res.status(404).json({ error: 'Empresa não encontrada.' })
+        }
+
+        return res.json(empresa)
+    }
+
     async update(req, res) {
         const schema = Yup.object().shape({
             nome: Yup.string().min(2),

@@ -40,6 +40,20 @@ class AlunoController {
         })
     }
 
+    async show(req, res) {
+        const aluno = await Aluno.findOne({
+            where: { user_id: req.userId },
+            attributes: ['nome', 'curso'],
+            include: [{ model: User, attributes: ['email'] }],
+        })
+
+        if (!aluno) {
+            return res.status(404).json({ error: 'Aluno não encontrado.' })
+        }
+
+        return res.json(aluno)
+    }
+
     async update(req, res) {
         const schema = Yup.object().shape({
             nome: Yup.string().min(2),
