@@ -1,0 +1,428 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: estagio
+meta:
+  id: wrk_1e74ec8cbd8542d592c2d6ebd4a62d01
+  created: 1781533746728
+  modified: 1781543301649
+  description: ""
+collection:
+  - name: estagio
+    meta:
+      id: fld_fcf4ddc967f94e578cf71ca289a43aff
+      created: 1781543458766
+      modified: 1781545383176
+      sortKey: -1781543458766
+      description: ""
+    children:
+      - url: localhost:3000/sessions
+        name: session.store
+        meta:
+          id: req_1a1e755de2c44ef2bfd2fc8818945b7b
+          created: 1781543155875
+          modified: 1781544519578
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468281
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "douglasempresa@gmail.com",
+            	"password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/aluno
+        name: aluno.store
+        meta:
+          id: req_13e03bd7b8da46a785f3af32079c4f5b
+          created: 1781533858677
+          modified: 1781543472214
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468181
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Douglas",
+            	"email": "douglas@gmail.com",
+            	"password": "123456",
+            	"curso": "ADS"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/aluno
+        name: aluno.show
+        meta:
+          id: req_022f52b3d57242e8bec7bf14c99e86d2
+          created: 1781533746739
+          modified: 1781543941727
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468081
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/aluno
+        name: aluno.update
+        meta:
+          id: req_afff792c020d4242be6a1193a05f4f97
+          created: 1781543987424
+          modified: 1781544276167
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468131
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Douglas",
+            	"email": "douglas@gmail.com",
+            	"oldPassword": "123456",
+            	"password": "123456",
+            	"passwordConfirma": "123456",
+            	"curso": "Analise e desenvolvimento de sistemas"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/vagas
+        name: aluno.vagas.index
+        meta:
+          id: req_88b4c7e573ab454f977c9be1ad11a8bf
+          created: 1781544326994
+          modified: 1781545659668
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468056
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/vagas/:id
+        name: aluno.vagas.show
+        meta:
+          id: req_6a346f4aca7544b39341138d92ce6e56
+          created: 1781544366534
+          modified: 1781545674588
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468043.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+        pathParameters:
+          - name: id
+            value: "1"
+      - url: localhost:3000/empresa
+        name: empresa.store
+        meta:
+          id: req_d1dffe478bc542cb860e7c676848ef01
+          created: 1781544421882
+          modified: 1781544562938
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468156
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Douglas Empresa",
+            	"cnpj": "12345678911234",
+            	"email": "douglasempresa@gmail.com",
+            	"password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/empresa
+        name: empresa.show
+        meta:
+          id: req_4caa4a44ddd549c78f304b99802eb8b5
+          created: 1781544583872
+          modified: 1781544648792
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468143.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/empresa
+        name: empresa.update
+        meta:
+          id: req_bd58ea94e1694fd280b0f73d00e054f8
+          created: 1781544721364
+          modified: 1781544757685
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468106
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Douglas Empresa Atualizada",
+            	"email": "douglasempresa@gmail.com",
+            	"oldPassword": "123456",
+            	"password": "123456",
+            	"passwordConfirma": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/vagas
+        name: empresa.vaga.store
+        meta:
+          id: req_4b3bb6454405413d8a7af9cb5694f830
+          created: 1781545588175
+          modified: 1781545600612
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468149.75
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"titulo": "Desenvolvedor Frontend",
+            	"descricao": "Vaga para estágio em desenvolvimento frontend com React.",
+            	"area": "TI"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/vagas/:id
+        name: empresa.vaga.update
+        meta:
+          id: req_c2beee8fba6c4149a4d1a5fc337eee9c
+          created: 1781545510640
+          modified: 1781545628065
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468099.75
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"titulo": "Desenvolvedor Frontend Pleno",
+            	"descricao": "Vaga atualizada para estágio em desenvolvimento frontend.",
+            	"area": "TI"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+        pathParameters:
+          - name: id
+            value: "1"
+      - url: localhost:3000/vagas/:id
+        name: empresa.vaga.patch
+        meta:
+          id: req_79d64cdfc3db456c89477e30199c9720
+          created: 1781545412424
+          modified: 1781545484313
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468093.5
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"preenchida": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+        pathParameters:
+          - name: id
+            value: "1"
+      - url: localhost:3000/vagas/:id
+        name: empresa.vaga.delete
+        meta:
+          id: req_35bb8187b1354f8b9170477ea04d52c3
+          created: 1781545440686
+          modified: 1781545489198
+          isPrivate: false
+          description: ""
+          sortKey: -1781543468087.25
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+        pathParameters:
+          - name: id
+            value: "1"
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImVtcHJlc2EiLCJpYXQiOjE3ODE1NDQ1MjEsImV4cCI6MTc4MjE0OTMyMX0.gx6iV_Mgozfw3FBC9BcGL7jvSdAmNxGh-nyIlGmZ2zk
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_71dbbd5d98e5eed2214661e6844a8a4ae624850a
+    created: 1781533746731
+    modified: 1781533746731
+environments:
+  name: Base Environment
+  meta:
+    id: env_71dbbd5d98e5eed2214661e6844a8a4ae624850a
+    created: 1781533746730
+    modified: 1781533746730
+    isPrivate: false
