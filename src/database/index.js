@@ -1,11 +1,15 @@
 import Sequelize from "sequelize"
 import databaseConfig from "../config/database.js"
+import User from "../models/User.js"
+import Aluno from "../models/Aluno.js"
+import Empresa from "../models/Empresa.js"
+import Vaga from "../models/Vaga.js"
 
-const models = []
+const models = [User, Aluno, Empresa, Vaga]
 
 class Database {
     constructor() {
-        // this.init()
+        this.init()
     }
 
     init() {
