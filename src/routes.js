@@ -1,18 +1,31 @@
 import { Router } from "express"
 import authMiddleware from "./middlewares/auth.js"
-import UserController from "./controllers/UserController.js"
+import roleMiddleware from "./middlewares/role.js"
 import SessionController from "./controllers/SessionController.js"
-
+import AlunoController from "./controllers/AlunoController.js"
+import EmpresaController from "./controllers/EmpresaController.js"
+import VagaController from "./controllers/VagaController.js"
 
 const routes = new Router()
 
-routes.post('/user', UserController.store)
+// Público
 routes.post('/session', SessionController.store)
+routes.post('/aluno', AlunoController.store)
+routes.post('/empresa', EmpresaController.store)
 
+// Protegido
 routes.use(authMiddleware)
 
-routes.get('/users', UserController.index)
-routes.get('/user', UserController.show)
-routes.put('/user/:id', UserController.update)
+// Aluno
+routes.put('/aluno', roleMiddleware('aluno'), AlunoController.update)
+routes.get('/vagas', roleMiddleware('aluno'), VagaController.index)
+routes.get('/vagas/:id', roleMiddleware('aluno'), VagaController.show)
+
+// Empresa
+routes.put('/empresa', roleMiddleware('empresa'), EmpresaController.update)
+routes.post('/vagas', roleMiddleware('empresa'), VagaController.store)
+routes.put('/vagas/:id', roleMiddleware('empresa'), VagaController.update)
+routes.patch('/vagas/:id/preencher', roleMiddleware('empresa'), VagaController.preencher)
+routes.delete('/vagas/:id', roleMiddleware('empresa'), VagaController.destroy)
 
 export default routes
