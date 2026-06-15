@@ -9,7 +9,7 @@ import VagaController from "./controllers/VagaController.js"
 const routes = new Router()
 
 // Público
-routes.post('/session', SessionController.store)
+routes.post('/sessions', SessionController.store)
 routes.post('/aluno', AlunoController.store)
 routes.post('/empresa', EmpresaController.store)
 
@@ -27,7 +27,7 @@ routes.get('/empresa', roleMiddleware('empresa'), EmpresaController.show)
 routes.put('/empresa', roleMiddleware('empresa'), EmpresaController.update)
 routes.post('/vagas', roleMiddleware('empresa'), VagaController.store)
 routes.put('/vagas/:id', roleMiddleware('empresa'), VagaController.update)
-routes.patch('/vagas/:id/preencher', roleMiddleware('empresa'), VagaController.preencher)
+routes.patch('/vagas/:id', roleMiddleware('empresa'), VagaController.partialUpdate)
 routes.delete('/vagas/:id', roleMiddleware('empresa'), VagaController.destroy)
 
 export default routes

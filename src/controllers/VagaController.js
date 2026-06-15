@@ -76,7 +76,18 @@ class VagaController {
         return res.json(vaga)
     }
 
-    async preencher(req, res) {
+    async partialUpdate(req, res) {
+        const schema = Yup.object().shape({
+            titulo: Yup.string(),
+            descricao: Yup.string(),
+            area: Yup.string(),
+            preenchida: Yup.boolean(),
+        })
+
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({ error: 'Dados inválidos.' })
+        }
+
         const empresa = await Empresa.findOne({ where: { user_id: req.userId } })
         const vaga = await Vaga.findOne({
             where: { id: req.params.id, empresa_id: empresa.id },
@@ -86,7 +97,7 @@ class VagaController {
             return res.status(404).json({ error: 'Vaga não encontrada.' })
         }
 
-        await vaga.update({ preenchida: true })
+        await vaga.update(req.body)
 
         return res.json(vaga)
     }
