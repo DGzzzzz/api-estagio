@@ -15,6 +15,7 @@ class VagaController {
 
     async show(req, res) {
         const vaga = await Vaga.findByPk(req.params.id, {
+            attributes: ['id', 'titulo', 'descricao', 'area', 'preenchida', 'empresa_id'],
             include: [{ model: Empresa, attributes: ['nome', 'cnpj'] }],
         })
 
