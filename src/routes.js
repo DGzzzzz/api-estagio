@@ -25,6 +25,7 @@ routes.get('/vagas/:id', roleMiddleware('aluno'), VagaController.show)
 // Empresa
 routes.get('/empresa', roleMiddleware('empresa'), EmpresaController.show)
 routes.put('/empresa', roleMiddleware('empresa'), EmpresaController.update)
+routes.get('/empresa/vagas', roleMiddleware('empresa'), EmpresaController.vagas)
 routes.post('/vagas', roleMiddleware('empresa'), VagaController.store)
 routes.put('/vagas/:id', roleMiddleware('empresa'), VagaController.update)
 routes.patch('/vagas/:id', roleMiddleware('empresa'), VagaController.partialUpdate)

@@ -1,6 +1,7 @@
 import * as Yup from 'yup'
 import User from '../models/User.js'
 import Empresa from '../models/Empresa.js'
+import Vaga from '../models/Vaga.js'
 
 class EmpresaController {
     async store(req, res) {
@@ -104,6 +105,20 @@ class EmpresaController {
             nome: empresa.nome,
             cnpj: empresa.cnpj,
         })
+    }
+
+    async vagas(req, res) {
+        const empresa = await Empresa.findOne({ where: { user_id: req.userId } })
+        if (!empresa) {
+            return res.status(404).json({ error: 'Empresa não encontrada.' })
+        }
+
+        const vagas = await Vaga.findAll({
+            where: { empresa_id: empresa.id },
+            attributes: ['id', 'titulo', 'area', 'descricao', 'preenchida'],
+        })
+
+        return res.json(vagas)
     }
 }
 
